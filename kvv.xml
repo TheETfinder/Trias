@@ -1,30 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Trias version="1.1" xmlns="http://www.vdv.de/trias" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.vdv.de/trias file:///C:/development/HEAD/extras/TRIAS/TRIAS_1.1/Trias.xsd">
+<Trias version="1.1" xmlns="http://www.vdv.de/trias" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <ServiceRequest>
-        <siri:RequestTimeStamp>2024-11-16T23:14:00</siri:RequestTimeStamp>
+        <siri:RequestTimestamp>2020-09-29T12:44:46.206Z</siri:RequestTimestamp>
         <siri:RequestorRef>T3x9Kzw3v6C5</siri:RequestorRef>
         <RequestPayload>
-            <TripRequest>
-                <Origin>
+            <StopEventRequest>
+                <Location>
                     <LocationRef>
-                        <StopPlaceRef>de:08212:7</StopPlaceRef>
+                        <StopPointRef>8502113</StopPointRef>
                     </LocationRef>
-                    <DepArrTime>2024-11-17T15:00:00</DepArrTime>
-                </Origin>
-                <Destination>
-                    <LocationRef>
-                        <StopPlaceRef>de:08212:89</StopPlaceRef>
-                    </LocationRef>
-                </Destination>
+                    <DepArrTime>2020-11-04T14:04:11</DepArrTime>
+                </Location>
                 <Params>
-                    <NumberOfResults>10</NumberOfResults>
-                    <IncludeTrackSections>false</IncludeTrackSections>
-                    <IncludeLegProjection>false</IncludeLegProjection>
-                    <IncludeIntermediateStops>false</IncludeIntermediateStops>
-                    <IncludeOperatingDays>false</IncludeOperatingDays>
-                    <IncludeFares>true</IncludeFares>
+                    <NumberOfResults>5</NumberOfResults>
+                    <StopEventType>departure</StopEventType>
+                    <IncludePreviousCalls>true</IncludePreviousCalls>
+                    <IncludeOnwardCalls>true</IncludeOnwardCalls>
+                    <IncludeRealtimeData>true</IncludeRealtimeData>
                 </Params>
-            </TripRequest>
+            </StopEventRequest>
         </RequestPayload>
     </ServiceRequest>
 </Trias>

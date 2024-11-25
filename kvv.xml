@@ -1,24 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Trias version="1.1" xmlns="http://www.vdv.de/trias" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ServiceRequest>
-        <siri:RequestTimestamp>2020-09-29T12:44:46.206Z</siri:RequestTimestamp>
-        <siri:RequestorRef>T3x9Kzw3v6C5</siri:RequestorRef>
+<Trias version="1.1" xmlns="http://www.vdv.de/trias" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.vdv.de/trias file:///C:/development/HEAD/extras/TRIAS/TRIAS_1.1/Trias.xsd">
+
+  <ServiceRequest>
+
+      <siri:RequestTimeStamp>2024-11-25T10:30:00</siri:RequestTimeStamp>
+
+      <siri:RequestorRef>T3x9Kzw3v6C5</siri:RequestorRef>
+
         <RequestPayload>
-            <StopEventRequest>
-                <Location>
+
+            <TripRequest>
+
+                <Origin>
+
                     <LocationRef>
-                        <StopPointRef>8502113</StopPointRef>
+
+                        <StopPointRef>de:08212:1004</StopPointRef>
+
                     </LocationRef>
-                    <DepArrTime>2020-11-04T14:04:11</DepArrTime>
-                </Location>
+
+                    <DepArrTime>2024-11-25T07:30:00Z</DepArrTime>
+
+                </Origin>
+
+                <Destination>
+
+                    <LocationRef>
+
+                        <StopPointRef>de:08212:7</StopPointRef>
+
+                    </LocationRef>
+
+                </Destination>
+
                 <Params>
+
                     <NumberOfResults>5</NumberOfResults>
-                    <StopEventType>departure</StopEventType>
-                    <IncludePreviousCalls>true</IncludePreviousCalls>
-                    <IncludeOnwardCalls>true</IncludeOnwardCalls>
-                    <IncludeRealtimeData>true</IncludeRealtimeData>
+
+                    <IncludeTrackSections>false</IncludeTrackSections>
+
+                    <IncludeLegProjection>false</IncludeLegProjection>
+
+                    <IncludeTurnDescription>false</IncludeTurnDescription>
+
+                    <IncludeSituationInfo>false</IncludeSituationInfo>
+
+                    <IncludeIntermediateStops>false</IncludeIntermediateStops>
+
+                    <IncludeFares>true</IncludeFares>
+
                 </Params>
-            </StopEventRequest>
+
+            </TripRequest>
+
         </RequestPayload>
+
     </ServiceRequest>
+
 </Trias>

@@ -1,18 +1,30 @@
 # importing the requests library
 import requests
+import xml.etree.ElementTree as ET
 
 # api-endpoint
 URL = "https://projekte.kvv-efa.de/mangangtrias/trias"
 
 with open('kvv.xml', 'r') as file:
-    kvvdata = file.read()
+     mydata = file.read()
 
 
 # sending get request and saving the response as response object
-r = requests.get(url = URL, data= kvvdata)
 
-print(r)
+headers = {'Content-Type': 'application/xml'} # set what your server accepts
+answer = requests.post(url= URL, data=mydata, headers=headers).text
+print(answer)
+
+#with open ('data.xml','w') as data:
+#    data.write(answer) 
+
+root = ET.fromstring(answer) 
 
 
-#F76VP9vhNQa7
 
+print(root)
+dat = root.attrib
+print(dat)
+
+
+#T3x9Kzw3v6C5

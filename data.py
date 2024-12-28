@@ -22,9 +22,17 @@ root = ET.fromstring(answer)
 
 
 
-print(root)
-dat = root.attrib
-print(dat)
+print(answer)
+#dat = root.attrib
+#print(dat)
+
+data_ncorrected = answer.replace('/n','')
+#data_correct = data_ncorrected.replace()
+
+with open('trial_data.xml', 'w', encoding="utf-8") as f:
+     f.write(data_ncorrected)
+
+
 
 
 #T3x9Kzw3v6C5

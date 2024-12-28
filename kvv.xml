@@ -2,7 +2,7 @@
 
   <ServiceRequest>
 
-      <siri:RequestTimeStamp>2024-11-25T10:30:00</siri:RequestTimeStamp>
+      <siri:RequestTimeStamp>2024-12-28T21:21:00</siri:RequestTimeStamp>
 
       <siri:RequestorRef>T3x9Kzw3v6C5</siri:RequestorRef>
 
@@ -18,7 +18,7 @@
 
                     </LocationRef>
 
-                    <DepArrTime>2024-11-25T07:30:00Z</DepArrTime>
+                    <DepArrTime>2024-12-28T21:25:00Z</DepArrTime>
 
                 </Origin>
 
@@ -46,7 +46,7 @@
 
                     <IncludeIntermediateStops>false</IncludeIntermediateStops>
 
-                    <IncludeFares>true</IncludeFares>
+                    <IncludeFares>false</IncludeFares>
 
                 </Params>
 

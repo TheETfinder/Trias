@@ -46,7 +46,7 @@
 
                     <IncludeIntermediateStops>false</IncludeIntermediateStops>
 
-                    <IncludeFares>true</IncludeFares>
+                    <IncludeFares>false</IncludeFares>
 
                 </Params>
 

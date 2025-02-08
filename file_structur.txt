@@ -1,0 +1,12 @@
+<ServiceDelivery>
+  <DeliveryPayload>
+    <TripResponse>
+      <TripResult>
+        <Trip>
+          <TripLeg>
+            <TimedLeg>
+              <Service>
+                <PublishedLineName>
+                  <Text>
+                <DestinationText>
+                  <Text>

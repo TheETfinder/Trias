@@ -1,5 +1,6 @@
 # importing the requests library
 import requests
+import xmltodict, json
 import xml.etree.ElementTree as ET
 import json
 
@@ -36,6 +37,11 @@ inputfix4 = inputfix3.replace('\\"','"')
 
 data_trias = inputfix4
 
+o = xmltodict.parse(data_trias)
+
+print(o)
+with open('trias.json', 'w') as f:
+     json.dump(o,f)
 #with open('data.xml', 'w') as data:
     # data.write(data_trias)
 
@@ -49,11 +55,12 @@ root_ = ET.fromstring(data_trias)
 
 
 
+
+
 #for country in root_.findall('Service'):
    # rank = country.find('PublishedLineName').text
   #  name = country.get('DestinationText')
    # print(name, rank)
-
 
 
 #T3x9Kzw3v6C5

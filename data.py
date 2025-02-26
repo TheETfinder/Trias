@@ -37,11 +37,32 @@ inputfix4 = inputfix3.replace('\\"','"')
 
 data_trias = inputfix4
 
-o = xmltodict.parse(data_trias)
+trias_dict = xmltodict.parse(data_trias)
 
-print(o)
-with open('trias.json', 'w') as f:
-     json.dump(o,f)
+#print(o)
+with open('trias.json', 'w', encoding="utf-8") as trias_json:
+     json.dump(trias_dict,trias_json)
+
+with open('trias.json', 'r', encoding="unicode-escape") as trias_json_load:
+    trias_data_reimport = json.load(trias_json_load)
+
+Trias = trias_data_reimport["Trias"]
+ServiceDelivery = Trias["ServiceDelivery"]
+DeliveryPayload = ServiceDelivery["DeliveryPayload"]
+TripResponse = DeliveryPayload["TripResponse"]
+TripResult = TripResponse["TripResult"]
+for i in TripResult:
+    Trip = i["Trip"]["TripLeg"]["TimedLeg"]["Service"]["PublishedLineName"]["Text"]
+    text = Trip.encode('latin1').decode('utf8')
+    print(text)
+    
+    
+
+
+
+
+
+
 #with open('data.xml', 'w') as data:
     # data.write(data_trias)
 
@@ -64,3 +85,5 @@ root_ = ET.fromstring(data_trias)
 
 
 #T3x9Kzw3v6C5
+
+print("Request done")

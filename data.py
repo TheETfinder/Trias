@@ -52,9 +52,14 @@ DeliveryPayload = ServiceDelivery["DeliveryPayload"]
 TripResponse = DeliveryPayload["TripResponse"]
 TripResult = TripResponse["TripResult"]
 for i in TripResult:
-    Trip = i["Trip"]["TripLeg"]["TimedLeg"]["Service"]["PublishedLineName"]["Text"]
-    text = Trip.encode('latin1').decode('utf8')
-    print(text)
+    Trip_name = i["Trip"]["TripLeg"]["TimedLeg"]["Service"]["PublishedLineName"]["Text"]
+    text_line = Trip_name.encode('latin1').decode('utf8')
+    print(text_line)
+
+for f in TripResult:
+    Trip_time = f["Trip"]["TripLeg"]["TimedLeg"]["LegBoard"]["ServiceDeparture"]["TimetabledTime"]
+    text_time = Trip_time.encode('latin1').decode('utf8')
+    print(text_time)
     
     
 

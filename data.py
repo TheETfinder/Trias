@@ -54,15 +54,24 @@ TripResult = TripResponse["TripResult"]
 for i in TripResult:
     Trip_name = i["Trip"]["TripLeg"]["TimedLeg"]["Service"]["PublishedLineName"]["Text"]
     text_line = Trip_name.encode('latin1').decode('utf8')
-    print(text_line)
+    #print(text_line)
 
-for f in TripResult:
-    Trip_time = f["Trip"]["TripLeg"]["TimedLeg"]["LegBoard"]["ServiceDeparture"]["TimetabledTime"]
+    Trip_time = i["Trip"]["TripLeg"]["TimedLeg"]["LegBoard"]["ServiceDeparture"]["TimetabledTime"]
     text_time = Trip_time.encode('latin1').decode('utf8')
-    print(text_time)
+    #print(text_time)
     
+    Trip_dest= i["Trip"]["TripLeg"]["TimedLeg"]["Service"]["DestinationText"]["Text"]	
+    text_dest = Trip_dest.encode('latin1').decode('utf8')
     
 
+
+    trias_result = "Linie:" + " "+ text_line + " " +"Nach"+ " "+ text_dest + " " +"Ankunft" + " "+ text_time
+
+        
+    print(trias_result)
+
+
+ 
 
 
 

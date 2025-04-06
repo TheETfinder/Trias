@@ -9,10 +9,11 @@ URL = "https://projekte.kvv-efa.de/mangangtrias/trias"
 
 
 time_now = time.strftime("%Y-%m-%dT%H:%M:%S")  
-time_now_edited = time_now.replace("T", " ")
-time_now_clean = time_now_edited.replace("Z", " ")
-time_fuck_you = time_now_clean.replace("-", " ")
-time_a = time_fuck_you.replace(":", " ")
+time_now_edited = time_now.replace("T", "")
+time_now_clean = time_now_edited.replace("Z", "")
+time_fuck_you = time_now_clean.replace("-", "")
+time_a = time_fuck_you.replace(":", "")
+time_point_a = int(time_a)
 print(time_a)
 
 print(time_now)
@@ -70,28 +71,31 @@ for i in TripResult:
 
     Trip_time = i["Trip"]["TripLeg"][0]["TimedLeg"]["LegBoard"]["ServiceDeparture"]["TimetabledTime"]
     text_time = Trip_time.encode('latin1').decode('utf8')
-    time_edit = text_time.replace("T"," ")
-    time_edit_final = time_edit.replace("Z"," ")
-    time_fuck = time_now_clean.replace("-", " ")
-    time_b = time_fuck.replace(":", " ")
-    time_departure = time_b-time_a
-    #print(text_time)
+    time_edit = text_time.replace("T","")
+    time_edit_final = time_edit.replace("Z","")
+    time_dep = time_edit_final.replace("-", "")
+    time_b = time_dep.replace(":", "")
+    print(time_b)
+    print(time_a)
+    time_point_b = int(time_b)
+    time_departure = time_point_b-time_point_a
+    print(time_departure)
     
     Trip_dest= i["Trip"]["TripLeg"][0 ]["TimedLeg"]["Service"]["DestinationText"]["Text"]	
     text_dest = Trip_dest.encode('latin1').decode('utf8')
     
 
 
-    trias_result = "Linie:" + " "+ text_line + " " +"Nach"+ " "+ text_dest + " " +"Ankunft" + " "+ time_edit_final
+    #trias_result = "Linie:" + " "+ text_line + " " +"Nach"+ " "+ text_dest + " " +"Ankunft" + " "+ time_departure
 
-    text_trias.extend([trias_result])
+    #text_trias.extend([trias_result])
         
 
     #with open('result.txt', 'w') as result:
        # result.write(text_trias)
 
 
-    print(trias_result)
+    #print(trias_result)
     
 
 

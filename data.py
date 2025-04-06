@@ -1,20 +1,26 @@
-# importing the requests library
 import requests
 import xmltodict, json
 import xml.etree.ElementTree as ET
 import json
+import time
 
 # api-endpoint
 URL = "https://projekte.kvv-efa.de/mangangtrias/trias"
 
+
+time_now = time.strftime("%Y-%m-%dT%H:%M:%S")  
+
+
+print(time_now)
+
 with open('kvv.xml', 'r') as file:
      mydata = file.read()
 
-
+data_modified = mydata.replace('2025-03-02T17:36:00',time_now)
 # sending get request and saving the response as response object
 
 headers = {'Content-Type': 'application/xml'} # set what your server accepts
-answer = requests.post(url= URL, data=mydata, headers=headers).text
+answer = requests.post(url= URL, data=data_modified, headers=headers).text
 #print(answer)
 
 #with open ('data.xml','w') as data:
@@ -29,6 +35,8 @@ dat = root.attrib
 #print(dat)
 
 input_ = json.dumps(answer)
+
+text_trias =[]
 
 inputfix1 = input_.replace("\\n","")
 inputfix2= inputfix1.replace('"', '', 1)
@@ -52,23 +60,38 @@ DeliveryPayload = ServiceDelivery["DeliveryPayload"]
 TripResponse = DeliveryPayload["TripResponse"]
 TripResult = TripResponse["TripResult"]
 for i in TripResult:
-    Trip_name = i["Trip"]["TripLeg"]["TimedLeg"]["Service"]["PublishedLineName"]["Text"]
+    Trip_name = i["Trip"]["TripLeg"][0]["TimedLeg"]["Service"]["PublishedLineName"]["Text"]
     text_line = Trip_name.encode('latin1').decode('utf8')
     #print(text_line)
 
-    Trip_time = i["Trip"]["TripLeg"]["TimedLeg"]["LegBoard"]["ServiceDeparture"]["TimetabledTime"]
+    Trip_time = i["Trip"]["TripLeg"][0]["TimedLeg"]["LegBoard"]["ServiceDeparture"]["TimetabledTime"]
     text_time = Trip_time.encode('latin1').decode('utf8')
     #print(text_time)
     
-    Trip_dest= i["Trip"]["TripLeg"]["TimedLeg"]["Service"]["DestinationText"]["Text"]	
+    Trip_dest= i["Trip"]["TripLeg"][0 ]["TimedLeg"]["Service"]["DestinationText"]["Text"]	
     text_dest = Trip_dest.encode('latin1').decode('utf8')
     
 
 
     trias_result = "Linie:" + " "+ text_line + " " +"Nach"+ " "+ text_dest + " " +"Ankunft" + " "+ text_time
 
+    text_trias.extend([trias_result])
         
+
+    #with open('result.txt', 'w') as result:
+       # result.write(text_trias)
+
+
     print(trias_result)
+    
+
+
+
+
+
+
+    
+
 
 
  

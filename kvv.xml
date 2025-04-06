@@ -14,11 +14,11 @@
 
                     <LocationRef>
 
-                        <StopPointRef>de:08212:1004</StopPointRef>
+                        <StopPointRef>de:08212:1111</StopPointRef>
 
                     </LocationRef>
 
-                      <DepArrTime>2025-03-02T17:36:00Z</DepArrTime>
+                      <DepArrTime>2025-03-02T17:36:00</DepArrTime>
 
                 </Origin>
 

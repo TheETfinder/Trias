@@ -26,7 +26,7 @@ data_modified = mydata.replace('2025-03-02T17:36:00',time_now)
 
 headers = {'Content-Type': 'application/xml'} # set what your server accepts
 answer = requests.post(url= URL, data=data_modified, headers=headers).text
-#print(answer)
+print(answer)
 
 #with open ('data.xml','w') as data:
 #    data.write(answer) 
@@ -75,8 +75,6 @@ for i in TripResult:
     time_edit_final = time_edit.replace("Z","")
     time_dep = time_edit_final.replace("-", "")
     time_b = time_dep.replace(":", "")
-    print(time_b)
-    print(time_a)
     time_point_b = int(time_b)
     time_departure = time_point_b-time_point_a
     print(time_departure)

@@ -59,11 +59,11 @@ with open('trias.json', 'w', encoding="utf-8") as trias_json:
 with open('trias.json', 'r', encoding="unicode-escape") as trias_json_load:
     trias_data_reimport = json.load(trias_json_load)
 
-Trias = trias_data_reimport["Trias"]
-ServiceDelivery = Trias["ServiceDelivery"]
-DeliveryPayload = ServiceDelivery["DeliveryPayload"]
-TripResponse = DeliveryPayload["TripResponse"]
-TripResult = TripResponse["TripResult"]
+Trias = trias_data_reimport["Trias"]["ServiceDelivery"]["DeliveryPayload"]["TripResponse"]["TripResult"]
+ServiceDelivery = Trias
+DeliveryPayload = ServiceDelivery
+TripResponse = DeliveryPayload
+TripResult = TripResponse
 for i in TripResult:
     Trip_name = i["Trip"]["TripLeg"][0]["TimedLeg"]["Service"]["PublishedLineName"]["Text"]
     text_line = Trip_name.encode('latin1').decode('utf8')

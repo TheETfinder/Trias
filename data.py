@@ -58,7 +58,6 @@ trip = trias_data_reimport["Trip"]["TripLeg"]
 with open('debug.json', 'w') as e:
     json.dump(trip, e)
 
-exit()
     
 for i in trip :
 

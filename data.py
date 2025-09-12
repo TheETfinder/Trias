@@ -7,7 +7,13 @@ import time
 # api-endpoint
 URL = "https://projekte.kvv-efa.de/mangangtrias/trias"
 
-time_now = time.strftime("%Y-%m-%dT%H:%M:%S")  
+time_now = time.strftime("%Y-%m-%dT%H:%M:%S")
+day = time.strftime("%Y-%m-%dT")
+
+time_fix = time_now.replace("T", "")
+time = time_fix.replace("Z", "")
+
+print(time_now)
 
 with open('kvv.xml', 'r') as file:
      mydata = file.read()
@@ -42,7 +48,7 @@ with open('trias.json', 'w', encoding="utf-8") as trias_json:
 with open('trias.json', 'r', encoding="unicode-escape") as trias_json_load:
     trip = json.load(trias_json_load)
 
-    
+
 for i in trip :
 
     Trip_name = i["StopEvent"]["Service"]["ServiceSection"]["PublishedLineName"]["Text"]
@@ -50,13 +56,16 @@ for i in trip :
 
     Trip_time = i["StopEvent"]["ThisCall"]["CallAtStop"]["ServiceDeparture"]["TimetabledTime"]
     text_time = Trip_time.encode('latin1').decode('utf8')
-        
+
     Trip_dest = i["StopEvent"]["Service"]["DestinationText"]["Text"]
     text_dest = Trip_dest.encode('latin1').decode('utf8')
-    
-    trias_result = "Linie:" + " "+ text_line + " " +"Nach"+ " "+ text_dest + " " +"Ankunft" + " "+ text_time 
+
+    arr = text_time.replace(day, "")
+    time = arr.replace("Z", "")
+
+    trias_result = "Linie:" + " "+ text_line + " " +"Nach"+ " "+ text_dest + " " +"Ankunft um:" + " "+ time
 
     print(trias_result)
-    
+
 
 print("Request done")

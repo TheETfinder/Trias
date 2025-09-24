@@ -3,6 +3,7 @@ import xmltodict, json
 import xml.etree.ElementTree as ET
 import json
 import time
+from datetime import datetime
 
 # api-endpoint
 URL = "https://projekte.kvv-efa.de/mangangtrias/trias"
@@ -35,11 +36,6 @@ with open('test.json','r') as l:
 
 trias = tri["Trias"]
 
-#with open('trias.json','w') as d:
-#	json.dump(trias, d)
-
-#exit()
-
 StopEventResult = trias["ServiceDelivery"]["DeliveryPayload"]["StopEventResponse"]["StopEventResult"]
 
 with open('trias.json', 'w', encoding="utf-8") as trias_json:
@@ -60,12 +56,20 @@ for i in trip :
     Trip_dest = i["StopEvent"]["Service"]["DestinationText"]["Text"]
     text_dest = Trip_dest.encode('latin1').decode('utf8')
 
+    trias_time = text_time.replace("Z","")
+    arr_time = trias_time.replace("T", "")
     arr = text_time.replace(day, "")
-    time = arr.replace("Z", "")
+    time_arr = arr.replace("Z", "")
+    print(arr_time)
+#    dt = datetime.strptime(arr_time, "%a, %d %b %Y %H:%M:%S")
+#    datetime = datetime.datetime-strptime(time,"%Y-%m-%d%H:%M:%S")
 
-    trias_result = "Linie:" + " "+ text_line + " " +"Nach"+ " "+ text_dest + " " +"Ankunft um:" + " "+ time
+#    print(dt)
+#    print(datetime)
+
+    trias_result = "Linie:" + " "+ text_line + " " +"Nach"+ " "+ text_dest + " " +"Abfahrt:" + " "+ time_arr
 
     print(trias_result)
 
-
+print(type(text_time))
 print("Request done")

@@ -60,7 +60,7 @@ for i in trip :
     arr_time = trias_time.replace("T", "")
     arr = text_time.replace(day, "")
     time_arr = arr.replace("Z", "")
-    print(arr_time)
+#    print(arr_time)
 #    dt = datetime.strptime(arr_time, "%a, %d %b %Y %H:%M:%S")
 #    datetime = datetime.datetime-strptime(time,"%Y-%m-%d%H:%M:%S")
 
@@ -71,5 +71,5 @@ for i in trip :
 
     print(trias_result)
 
-print(type(text_time))
+#print(type(text_time))
 print("Request done")
